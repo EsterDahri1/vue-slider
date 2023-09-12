@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
@@ -17,22 +18,27 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img src="img/01.webp" alt="Spiderman" />
-                    <div class="text">
-                        <h3>Spiderman</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
-                        </p>
+                  
+                    <div @ click="nextPrev(false)">
+                        <i class="fa-solid fa-chevron-up chevron-btn"></i>
+                    </div>
+                    <div @ click="nextPrev(true)">
+                        <i class="fa-solid fa-chevron-down chevron-btn"></i>
+                    </div>
+
+                    <div id="container-images">
+                        <img @mouseover="autoScroll = false" @mouseleave="autoScroll = true" :src="images[counter]" alt="image">
+                    </div>
+
+                    <div class="descriptionImg">
+                        <h2>{{imageName[counter]}}</h2>
+                        <p>{{description[counter]}}</p>
                     </div>
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
-                    <div class="thumb active">
+                    <div v-for="(thumb, index) in images" class="thumb"></div>
+                    <!-- <div class="thumb active">
                         <img src="img/01.webp" alt="Svezia" />
                     </div>
                     <div class="thumb">
@@ -46,7 +52,8 @@
                     </div>
                     <div class="thumb">
                         <img src="img/05.webp" alt="Avengers" />
-                    </div>
+                    </div> -->
+                    <img @mouseover="autoScroll = (index == counter) ? false : true" @mouseleave="autoScroll = (index == counter) ? true : false" @click="counter = index " :src="thumb">
                 </div>
 
             </div>

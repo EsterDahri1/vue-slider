@@ -38,13 +38,13 @@ const {createApp} = Vue
     createApp({
         data(){
             return{
-                //Creo delle array contenenti le immagini e un nome
+                //Creo delle array contenenti il nome delle img, le immagini e la descrizione
                 imageName:[
-                    'First image',
-                    'Second image',
-                    'Third image',
-                    'Fourth image',
-                    'Fifth image'
+                    'Spiderman',
+                    'Ratchet & Clank',
+                    'Fortnite',
+                    'Stray',
+                    'Avengers'
                 ],
                 images:[
                     'img/1.webp',
@@ -52,6 +52,13 @@ const {createApp} = Vue
                     'img/3.webp',
                     'img/4.webp',
                     'img/5.webp'
+                ],
+                description:[
+                    'a',
+                    'a',
+                    'a',
+                    'a',
+                    'a',
                 ],
 
                 //aggiungo autoscroll per far girare da sole le immagini
@@ -64,8 +71,8 @@ const {createApp} = Vue
         //aggiungo funzione per autoscroll
         methods: {
             //se next è vero allora incremento il contatore e faccio andare avanti alla slide successiva
-            nextImg(next) {
-                if (next == true) {
+            nextImg(nextPrev) {
+                if (nextPrev == true) {
                     this.counter++;
                 } else {
                     this.counter--;
@@ -81,6 +88,18 @@ const {createApp} = Vue
                     this.counter = this.images.length - 1
                 };
             },
+            //Aggiungo una funzione che in base alla time function che setto io cambia l'immagine
+            clickAuto(){
+                //metto la time function di 3s = 3000ms
+                setInterval(() => {
+                    if (this.autoScroll) this.nextPrev(true)
+                }, 3000)
+            },
+
+            mounted(){
+                this.clickAuto()
+            }
+
         }
 
     }).mount('#app')
