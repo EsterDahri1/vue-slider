@@ -47,11 +47,11 @@ const {createApp} = Vue
                     'Avengers'
                 ],
                 images:[
-                    'img/1.webp',
-                    'img/2.webp',
-                    'img/3.webp',
-                    'img/4.webp',
-                    'img/5.webp'
+                    'img/01.webp',
+                    'img/02.webp',
+                    'img/03.webp',
+                    'img/04.webp',
+                    'img/05.webp'
                 ],
                 description:[
                     'a',
@@ -92,7 +92,7 @@ const {createApp} = Vue
             clickAuto(){
                 //metto la time function di 3s = 3000ms
                 setInterval(() => {
-                    if (this.autoScroll) this.nextPrev(true)
+                    if (this.autoScroll) this.nextImg(true)
                 }, 3000)
             },
 
