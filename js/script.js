@@ -38,7 +38,21 @@ const {createApp} = Vue
     createApp({
         data(){
             return{
-
+                //Creo delle array contenenti le immagini e un nome
+                imageName:[
+                    'First image',
+                    'Second image',
+                    'Third image',
+                    'Fourth image',
+                    'Fifth image'
+                ],
+                images:[
+                    'img/1.webp',
+                    'img/2.webp',
+                    'img/3.webp',
+                    'img/4.webp',
+                    'img/5.webp'
+                ]
             }
         }
     }).mount('#app')
