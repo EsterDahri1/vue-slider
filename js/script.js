@@ -1,4 +1,4 @@
-const slides = [
+/*const slides = [
 {
     image: 'img/01.webp',
         title: 'Marvel\'s Spiderman Miles Morale',
@@ -22,4 +22,23 @@ const slides = [
     }
 ];
 
-console.log(slides);
+console.log(slides);*/
+
+/*
+Bonus: 
+1- al click su una thumb, visualizzare in grande l'immagine corrispondente 
+2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente 
+3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
+*/
+
+//inserisco la struttura di Vue e il link su html
+
+const {createApp} = Vue
+
+    createApp({
+        data(){
+            return{
+
+            }
+        }
+    }).mount('#app')
