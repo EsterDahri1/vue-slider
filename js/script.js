@@ -52,7 +52,35 @@ const {createApp} = Vue
                     'img/3.webp',
                     'img/4.webp',
                     'img/5.webp'
-                ]
+                ],
+
+                //aggiungo autoscroll per far girare da sole le immagini
+                autoScroll: true,
+                //imposto il contatore delle immagini a 0
+                counter: 0
             }
+        },
+
+        //aggiungo funzione per autoscroll
+        methods: {
+            //se next è vero allora incremento il contatore e faccio andare avanti alla slide successiva
+            nextImg(next) {
+                if (next == true) {
+                    this.counter++;
+                } else {
+                    this.counter--;
+                }
+
+                //Se il counter è uguale alla lunghezza dell'array e quindi ho finito le immagini riparto dalla prima slide
+                if(this.counter == this.images.length){
+                    this.counter = 0;
+                };
+
+                //Se il counter è < di 0 allora parto dall'ultimo
+                if (this.counter < 0){
+                    this.counter = this.images.length - 1
+                };
+            },
         }
+
     }).mount('#app')
