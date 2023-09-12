@@ -12,7 +12,9 @@ const {createApp} = Vue
     createApp({
         data(){
             return{
-                
+                //imposto autoscroll su vero
+                autoScroll : true,
+                //Counter/immagine di partenza
                 activeImg: 0,
 
                 slides: [
@@ -46,7 +48,7 @@ const {createApp} = Vue
         methods: {
 
             //pulsante per passare alla prossima slide
-            next() {
+            next(next) {
                 this.activeImg++;
                 if (this.activeImg > this.slides.length - 1) {
                     this.activeImg = 0;
@@ -63,7 +65,21 @@ const {createApp} = Vue
 
             activeClass(index){
                 return `thumb ${this.activeImg === index - 1 ? 'active' : ''}`
+            },
+
+            //Aggiungo una funzione che in base alla time function che setto io cambia l'immagine
+            clickAuto() {
+                //metto la time function di 3s = 3000ms
+                setInterval(() => {
+                    if (this.autoScroll) this.next(true)
+                }, 3000)
+            },
+
+            
+            mounted(){
+                this.$refs.next.click();
             }
+
         },
 
     }).mount('#app')
